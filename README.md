@@ -1,5 +1,5 @@
 <h1 align="center">my_world</h1>
-<h2 align="center">[Epitech project]</h2>
+> [Epitech project]
 
 A terraformer program which allows you to modify, save and load 3d maps.
 
