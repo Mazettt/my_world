@@ -1,11 +1,13 @@
-<h1 align="center">[Epitech project] my_world</h1>
+<h1 align="center">my_world</h1>
+<h2 align="center">[Epitech project]</h2>
 
-> A terraformer program which allows you to modify, save and load 3d maps.
+A terraformer program which allows you to modify, save and load 3d maps.
 
 ## Install
 
 ```sh
-git clone git@github.com:Mazettt/my_world.git ; make
+git clone git@github.com:Mazettt/my_world.git
+make
 ```
 
 ## Usage
@@ -14,7 +16,7 @@ git clone git@github.com:Mazettt/my_world.git ; make
 ./my_world
 ```
 
-## Author
+## Authors
 
 👤 **Martin d'Hérouville**
 
