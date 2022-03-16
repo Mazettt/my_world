@@ -1,15 +1,6 @@
-<h1 align="center">Welcome to my_world 👋</h1>
-<p>
-  <a href="oui" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-</p>
+<h1 align="center">[Epitech project] my_world</h1>
 
 > A terraformer program which allows you to modify, save and load 3d maps.
-
-### 🏠 [Homepage](oui)
-
-### ✨ [Demo](oui)
 
 ## Install
 
@@ -30,9 +21,11 @@ git clone git@github.com:Mazettt/my_world.git ; make
 * Github: [@Mazettt](https://github.com/Mazettt)
 * LinkedIn: [@martin-d-herouville](https://linkedin.com/in/martin-d-herouville)
 
+👤 **Thomas Ott**
+
+* Github: [@RedboardDev](https://github.com/RedboardDev)
+* LinkedIn: [@thomas--ott](https://linkedin.com/in/thomas--ott)
+
 ## Show your support
 
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+Give a ⭐️ if you like the project!
