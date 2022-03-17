@@ -4,6 +4,11 @@
 
 A terraformer program which allows you to modify, save and load 3d maps.
 
+## Requirements
+
+- CSFLM library
+- Make
+
 ## Install
 
 ```sh
@@ -28,7 +33,3 @@ make
 
 * Github: [@RedboardDev](https://github.com/RedboardDev)
 * LinkedIn: [@thomas--ott](https://linkedin.com/in/thomas--ott)
-
-## Show your support
-
-Give a ⭐️ if you like the project!
