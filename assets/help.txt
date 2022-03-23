@@ -6,7 +6,7 @@ USAGE
 OPTIONS
     map.txt     launch with a pre-generated map.
     X Y         size on x and y of the map (it will be flat).
-    -h          print the usage and quit.
+    -h, --help  print the usage and quit.
 
 USER INTERACTIONS
     Affect terrain:

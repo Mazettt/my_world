@@ -38,7 +38,7 @@ int main(int ac, char **av)
     map_t maps;
 
     if (ac == 2) {
-        if (!my_strcmp("-h", av[1]))
+        if (!my_strcmp("-h", av[1]) || !my_strcmp("--help", av[1]))
             help();
         else
             my_world(true, (sfVector2i){0, 0}, av[1]);
