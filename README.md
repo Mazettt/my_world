@@ -10,8 +10,7 @@ A terraformer program which allows you to modify, save and load 3d maps.
 ## Install
 
 ```sh
-git clone git@github.com:Mazettt/my_world.git
-make
+git clone git@github.com:Mazettt/my_world.git ; cd my_world ; make
 ```
 
 ## Usage
