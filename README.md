@@ -2,6 +2,8 @@
 
 A terraformer program which allows you to modify, save and load 3d maps.
 
+> Done between February, 21 2022 and March, 20 2022
+
 ## Requirements
 
 - CSFLM library
