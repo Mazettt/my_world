@@ -6,13 +6,14 @@ A terraformer program which allows you to modify, save and load 3d maps.
 
 ## Requirements
 
-- CSFLM library
+- SFML and CSFML
 - Make
+- GCC
 
 ## Install
 
 ```sh
-git clone git@github.com:Mazettt/my_world.git ; cd my_world ; make
+git clone git@github.com:Mazettt/my_world.git && cd my_world && make
 ```
 
 ## Usage
@@ -21,6 +22,8 @@ git clone git@github.com:Mazettt/my_world.git ; cd my_world ; make
 ./my_world --help
 ./my_world
 ```
+
+***
 
 ## Screenshots
 
