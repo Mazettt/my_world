@@ -36,8 +36,7 @@ $(NAME):	$(OBJ)
 	cp my.h ../../include/
 	ar rc libmy.a *.o
 	cp *.a ..
-	@echo -e "\033[1;34m\n=============== Lib compilation ok ==============="
-	@echo -e "\033[0m"
+	@echo -e "\033[1;34mLib compilation ok\n\033[0m"
 
 clean:
 	rm -f $(OBJ)

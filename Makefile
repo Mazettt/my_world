@@ -6,80 +6,27 @@
 ##
 
 NAME	=	my_world
+NAME_TESTS	=	unit_tests
 
 # src
 SRC_DIR	=	src/
-EXTENSION	=	.c
-
-SRC_FILES	=	events/events	\
-				events/key_pressed	\
-				events/key_released	\
-				events/mouse	\
-				events/text	\
-				interface/menu/buttons/buttons1	\
-				interface/menu/buttons/buttons2	\
-				interface/menu/events_menu	\
-				interface/world/buttons/arrows	\
-				interface/world/buttons/rotate	\
-				interface/world/buttons/save_home	\
-				interface/world/buttons/save	\
-				interface/world/buttons/toggle	\
-				interface/check_click_buttons	\
-				interface/check_click_soundbox	\
-				interface/check_mouse_on_buttons	\
-				interface/init_spritesheets_menu	\
-				interface/init_spritesheets	\
-				interface/put_spritesheets	\
-				interface/text_input_load_map	\
-				interface/toggle_spritesheets	\
-				interface/utils_sprites	\
-				map/transform_map/check_incidence	\
-				map/transform_map/transform_map	\
-				map/check_limits_translation	\
-				map/create_map_begin	\
-				map/create_quad	\
-				map/draw_map	\
-				map/events_map	\
-				map/exec_events_map	\
-				map/get_color_with_z	\
-				map/get_color	\
-				map/get_highest_point	\
-				map/init_maps_runtime	\
-				map/re_create_map	\
-				clean_window	\
-				draw_simple	\
-				init_all	\
-				int_array_utils	\
-				main	\
-				myworld	\
-				utils	\
-				lib_sound	\
-
-SRC	=	$(addprefix $(SRC_DIR), $(addsuffix $(EXTENSION), $(SRC_FILES)))
-
-SRC	+=	bonus/buttons.c	\
+SRC	=	$(shell find $(SRC_DIR) -type f '(' -name "*.c" ')')	\
+		bonus/buttons.c	\
 		bonus/open_folder_with_maps.c	\
 		bonus/load_file.c	\
-		bonus/save_file.c	\
-
-# no main
-SRC_FILES_NO_MAIN	=	$(filter-out main, $(SRC_FILES))
-
-SRC_NO_MAIN	=	$(addprefix $(SRC_DIR), $(addsuffix $(EXTENSION), $(SRC_FILES_NO_MAIN)))
+		bonus/save_file.c
+SRC_NO_MAIN	=	$(filter-out $(SRC_DIR)main.c, $(SRC))
 
 # tests
 TESTS_DIR	=	tests/
-
-TESTS_FILES	=	tests.c	\
-
-TESTS	=	$(addprefix $(TESTS_DIR), $(TESTS_FILES))
-
-NAME_TESTS	=	unit_tests
+TESTS	=	$(shell find $(TESTS_DIR) -type f '(' -name "*.c" ')')
 
 # compil
 OBJ	=	$(SRC:.c=.o)
-
 CC	=	gcc -g
+
+COUNT	=	0
+TOTAL_NBR_FILES	=	$(shell echo $(SRC) | wc -w)
 
 # clean
 BIN	=	vgcore*	\
@@ -104,36 +51,48 @@ CSFML_FLAGS	=	-lcsfml-graphics	\
 TESTS_FLAGS	=	--coverage	\
 				-lcriterion
 
+RESET_COLOR	=	\033[0m
+BLACK	=	\033[0;30m
+RED		=	\033[0;31m
+GREEN	=	\033[0;32m
+YELLOW	=	\033[0;33m
+BLUE	=	\033[0;34m
+PURPLE	=	\033[0;35m
+CYAN	=	\033[0;36m
+WHITE	=	\033[0;37m
+BOLD_BLACK	=	\033[1;30m
+BOLD_RED	=	\033[1;31m
+BOLD_GREEN	=	\033[1;32m
+BOLD_YELLOW	=	\033[1;33m
+BOLD_BLUE	=	\033[1;34m
+BOLD_PURPLE	=	\033[1;35m
+BOLD_CYAN	=	\033[1;36m
+BOLD_WHITE	=	\033[1;37m
+
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	@echo -e "\033[1;34m\n============== Files compilation ok =============="
-	@echo -e "\033[0m"
-	make -C lib/my
+	@echo -e "$(BOLD_BLUE)Files compilation ok\n$(RESET_COLOR)"
+	@make -C lib/my
 	$(CC) -o $(NAME) $(OBJ) $(FLAGS) $(CSFML_FLAGS)
-	@echo -e "\033[1;32m\n================= Compilation done ================="
-	@echo -e "\033[0m"
+	@echo -e "$(BOLD_GREEN)Compilation done$(RESET_COLOR)"
+
+%.o: %.c
+	$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
+	@echo -e "$(BOLD_CYAN)[$(shell echo $$(( $(COUNT) * 100 / $(TOTAL_NBR_FILES) )))%]$(RESET_COLOR) Compiling $< -> $@"
+	@$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
 	rm -f $(BIN)
 	rm -f $(OBJ)
-	make -C lib/my clean
-	@echo -e "\033[1;33m\n=============== Cleaning done ==============="
-	@echo -e "\033[0m"
+	@echo -e "$(BOLD_YELLOW)Cleaning done\n$(RESET_COLOR)"
 
 fclean:	clean
 	rm -f $(NAME)
 	make -C lib/my fclean
-	@echo -e "\033[1;33m\n=============== Full cleaning done ==============="
-	@echo -e "\033[0m"
+	@echo -e "$(BOLD_YELLOW)Full cleaning done\n$(RESET_COLOR)"
 
-re:	fclean all
-
-exec:	re
-	@echo
-	@echo "-------------------------------------------------"
-	@echo
-	@./$(NAME)
+re:	clean all
 
 gcovr:
 		gcovr --exclude tests
